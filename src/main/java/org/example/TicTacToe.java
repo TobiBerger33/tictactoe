@@ -2,10 +2,10 @@ package org.example;
 
 public class TicTacToe
 {
-    private Player player1;
-    private Player player2;
+    private final Player player1;
+    private final Player player2;
     private Player currentPlayer;
-    private Board board;
+    private final Board board;
 
 
     public TicTacToe()
