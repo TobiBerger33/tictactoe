@@ -46,6 +46,34 @@ public class TicTacToe
 
     public boolean hasWinner()
     {
+        for(int i = 0; i < 3; i++)
+        {
+            if(!board.isCellEmpty(i, 0) && board.isCellEmpty(i, 1) && board.isCellEmpty(i, 2))
+            {
+                if(board.cells[i][0] == board.cells[i][1] && board.cells[i][1] == board.cells[i][2])
+                {
+                    return true;
+                }
+            }
+        }
+
+        for(int j = 0; j < 3; j++)
+        {
+            if(!board.isCellEmpty(0, j) && board.isCellEmpty(1, j) && board.isCellEmpty(2, j))
+            {
+                if(board.cells[0][j] == board.cells[1][j] && board.cells[1][j] == board.cells[2][j])
+                {
+                    return true;
+                }
+            }
+        }
+
+        if(!board.isCellEmpty(0, 0) &&
+                board.cells[0][0] == board.cells[1][1] && board.cells[1][1] == board.cells[2][2])
+        {
+            return true;
+        }
+
         return false;
     }
 

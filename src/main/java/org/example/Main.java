@@ -1,5 +1,6 @@
 package org.example;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
@@ -45,6 +46,7 @@ public class Main {
            }
         }
 
+        System.out.println("The winner is: Player " + game.getCurrentPlayer().getMarker());
 
     }
 }
