@@ -19,7 +19,7 @@ public class TicTacToe
 
     public void start()
     {
-        System.out.println("Welcome to the game!");
+//        System.out.println("Welcome to the game!");
     }
 
     public void switchCurrentPlayer()
@@ -48,7 +48,7 @@ public class TicTacToe
     {
         for(int i = 0; i < 3; i++)
         {
-            if(!board.isCellEmpty(i, 0) && board.isCellEmpty(i, 1) && board.isCellEmpty(i, 2))
+            if(!board.isCellEmpty(i, 0))
             {
                 if(board.cells[i][0] == board.cells[i][1] && board.cells[i][1] == board.cells[i][2])
                 {
@@ -59,7 +59,7 @@ public class TicTacToe
 
         for(int j = 0; j < 3; j++)
         {
-            if(!board.isCellEmpty(0, j) && board.isCellEmpty(1, j) && board.isCellEmpty(2, j))
+            if(!board.isCellEmpty(0, j))
             {
                 if(board.cells[0][j] == board.cells[1][j] && board.cells[1][j] == board.cells[2][j])
                 {
