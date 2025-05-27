@@ -19,7 +19,7 @@ public class Board
     }
 
 
-    public boolean isCellEmpty(int x, int y)
+    public boolean isCellEmpty(int x, int y) throws ArrayIndexOutOfBoundsException
     {
         if(cells[x][y] == ' ')
         {
@@ -33,13 +33,19 @@ public class Board
         cells[x][y] = marker;
     }
 
-    public boolean isFull(int x, int y)
+    public boolean isFull()
     {
-        if(cells[x][y] != ' ')
+        for(int i = 0; i < 3; i++)
         {
-            return true;
+            for(int j = 0; j < 3; j++)
+            {
+                if(cells[i][j] == ' ')
+                {
+                    return false;
+                }
+            }
         }
-        return false;
+        return true;
     }
 
     public void clear()
@@ -55,17 +61,17 @@ public class Board
 
     public void print()
     {
-        System.out.println("_______");
+        System.out.print("_______");
 
         for(int i = 0; i < 3; i++)
         {
-            System.out.println("\n|");
+            System.out.print("\n|");
             for(int j = 0; j < 3; j++)
             {
                 System.out.print(cells[i][j] + "|");
             }
         }
-        System.out.println("_______\n");
+        System.out.println("\n_______\n");
     }
 }
 

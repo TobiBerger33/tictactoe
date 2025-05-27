@@ -19,7 +19,7 @@ public class TicTacToe
 
     public void start()
     {
-
+        System.out.println("Welcome to the game!");
     }
 
     public void switchCurrentPlayer()
@@ -34,9 +34,19 @@ public class TicTacToe
         }
     }
 
-    public void hasWinner()
+    public Board getBoard()
     {
+        return board;
+    }
 
+    public Player getCurrentPlayer()
+    {
+        return currentPlayer;
+    }
+
+    public boolean hasWinner()
+    {
+        return false;
     }
 
 }
