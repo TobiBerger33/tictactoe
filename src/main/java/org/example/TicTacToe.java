@@ -19,7 +19,7 @@ public class TicTacToe
 
     public void start()
     {
-//        System.out.println("Welcome to the game!");
+        System.out.println("\nWelcome to a new game!");
     }
 
     public void switchCurrentPlayer()

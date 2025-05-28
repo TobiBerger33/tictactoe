@@ -6,15 +6,14 @@ public class Main {
     public static void main(String[] args)
     {
         TicTacToe game = new TicTacToe();
-//        game.start();
+
         Scanner scanner = new Scanner(System.in);
 
         boolean playing = true;
 
         while(playing)
         {
-            System.out.println("\nWelcome to a new game!");
-
+            game.start();
             game.getBoard().print();
 
             while(!game.hasWinner())
@@ -22,9 +21,9 @@ public class Main {
                 System.out.println("Player: " + game.getCurrentPlayer().getMarker() + "\nWhere do you want to place your marker?");
 
                 System.out.print("Enter row: ");
-                int x = scanner.nextInt();
+                    int x = scanner.nextInt();
                 System.out.print("Enter column: ");
-                int y = scanner.nextInt();
+                    int y = scanner.nextInt();
 
                 try
                 {
@@ -71,16 +70,10 @@ public class Main {
 
                 String playAgain = scanner.nextLine();
 
-                switch (playAgain)
+                switch (playAgain.toLowerCase())
                 {
-                    case "Y":
-                        game.getBoard().clear();
-                        break;
                     case "y":
                         game.getBoard().clear();
-                        break;
-                    case "N":
-                        playing = false;
                         break;
                     case "n":
                         playing = false;

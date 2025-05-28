@@ -2,7 +2,7 @@ package org.example;
 
 public class Player
 {
-    private char marker;
+    private final char marker;
 
     public Player(char marker)
     {

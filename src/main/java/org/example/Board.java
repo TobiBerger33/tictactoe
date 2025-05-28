@@ -21,11 +21,7 @@ public class Board
 
     public boolean isCellEmpty(int x, int y) throws ArrayIndexOutOfBoundsException
     {
-        if(cells[x][y] == ' ')
-        {
-            return true;
-        }
-        return false;
+        return cells[x][y] == ' ';
     }
 
     public void place(int x, int y, char marker)
