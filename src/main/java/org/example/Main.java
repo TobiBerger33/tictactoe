@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Main {
     public static void main(String[] args)
@@ -14,20 +15,45 @@ public class Main {
         while(playing)
         {
             game.start();
-            game.getBoard().print();
 
             while(!game.hasWinner())
             {
-                System.out.println("Player: " + game.getCurrentPlayer().getMarker() + "\nWhere do you want to place your marker?");
 
-                System.out.print("Enter row: ");
-                    int x = scanner.nextInt();
-                System.out.print("Enter column: ");
-                    int y = scanner.nextInt();
+                int choice;
+
+                while (true)
+                {
+                    System.out.println("Player: " + game.getCurrentPlayer().getMarker() + "\nWhere do you want to place your marker? (1-9)");
+
+                    try
+                    {
+                        choice = scanner.nextInt();
+
+                        if (choice < 1 || choice > 9)
+                        {
+                            System.out.println("Please enter a number between 1 and 9!");
+                            throw new InputMismatchException();
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    catch (InputMismatchException e)
+                    {
+                        System.out.println("Please enter a valid number!");
+                        scanner.next();
+                    }
+                }
+
+                int[] pos = game.getPosition(choice);
+
+                int x = pos[0];
+                int y = pos[1];
 
                 try
                 {
-                    if(game.getBoard().isCellEmpty(x, y))
+                    if (game.getBoard().isCellEmpty(x, y))
                     {
                         game.getBoard().place(x, y, game.getCurrentPlayer().getMarker());
 
@@ -35,7 +61,7 @@ public class Main {
 
                         game.switchCurrentPlayer();
 
-                        if(game.hasWinner())
+                        if (game.hasWinner())
                         {
                             break;
                         }
@@ -45,12 +71,12 @@ public class Main {
                         System.out.println("This cell is occupied! Select again");
                     }
                 }
-                catch(ArrayIndexOutOfBoundsException e)
+                catch (ArrayIndexOutOfBoundsException e)
                 {
                     System.out.println("Invalid coordinates! Select again");
                 }
 
-                if(game.getBoard().isFull())
+                if (game.getBoard().isFull())
                 {
                     System.out.println("The game is a draw!");
                     break;

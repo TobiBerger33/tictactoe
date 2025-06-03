@@ -62,9 +62,29 @@ public class Board
         for(int i = 0; i < 3; i++)
         {
             System.out.print("\n|");
+
             for(int j = 0; j < 3; j++)
             {
                 System.out.print(cells[i][j] + "|");
+            }
+        }
+        System.out.println("\n_______\n");
+    }
+
+    public void printNewBoard()
+    {
+        System.out.print("_______");
+
+        int n = 1;
+
+        for(int i = 0; i < 3; i++)
+        {
+            System.out.print("\n|");
+
+            for(int j = 0; j < 3; j++)
+            {
+                System.out.print(n + "|");
+                n++;
             }
         }
         System.out.println("\n_______\n");

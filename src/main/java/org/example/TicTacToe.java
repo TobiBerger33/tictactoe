@@ -1,5 +1,7 @@
 package org.example;
 
+import java.sql.SQLOutput;
+
 public class TicTacToe
 {
     private final Player player1;
@@ -20,6 +22,9 @@ public class TicTacToe
     public void start()
     {
         System.out.println("\nWelcome to a new game!");
+
+        Board newBoard = new Board();
+        newBoard.printNewBoard();
     }
 
     public void switchCurrentPlayer()
@@ -74,7 +79,47 @@ public class TicTacToe
             return true;
         }
 
+        if(!board.isCellEmpty(0, 2) &&
+                board.cells[0][2] == board.cells[1][1] && board.cells[1][1] == board.cells[2][0])
+        {
+            return true;
+        }
+
         return false;
+    }
+
+    public int[] getPosition(int n)
+    {
+        int x;
+        int y;
+        int[] pos = new int[2];
+
+        switch(n)
+        {
+            case 1: pos[0] = 0; pos[1] = 0;
+                break;
+            case 2: pos[0] = 0; pos[1] = 1;
+                break;
+            case 3: pos[0] = 0; pos[1] = 2;
+                break;
+            case 4: pos[0] = 1; pos[1] = 0;
+                break;
+            case 5: pos[0] = 1; pos[1] = 1;
+                break;
+            case 6: pos[0] = 1; pos[1] = 2;
+                break;
+            case 7: pos[0] = 2; pos[1] = 0;
+                break;
+            case 8: pos[0] = 2; pos[1] = 1;
+                break;
+            case 9: pos[0] = 2; pos[1] = 2;
+                break;
+            default:
+                System.out.println("Invalid position! Try again");
+                return null;
+        }
+
+        return pos;
     }
 
 }
