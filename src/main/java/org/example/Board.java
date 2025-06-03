@@ -41,6 +41,7 @@ public class Board
                 }
             }
         }
+        clear();
         return true;
     }
 
