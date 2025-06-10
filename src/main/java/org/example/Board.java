@@ -24,7 +24,7 @@ public class Board
         return cells[x][y] == ' ';
     }
 
-    public void place(int x, int y, char marker)
+    public void place(int x, int y, char marker) throws ArrayIndexOutOfBoundsException
     {
         cells[x][y] = marker;
     }
