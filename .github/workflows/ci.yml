@@ -22,4 +22,3 @@ jobs:
 
       - name: Build and test with maven
         run: mvn -B test --file pom.xml
-
