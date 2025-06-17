@@ -6,7 +6,6 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-
         TicTacToe game = new TicTacToe();
         game.start();
 
@@ -24,14 +23,11 @@ public class Main {
 
             if(game.getBoard().isCellEmpty(x, y)) {
                 game.getBoard().place(x, y, game.getCurrentPlayer().getMarker());
-
                 game.getBoard().print();
-
                 game.switchCurrentPlayer();
             } else {
                 System.out.println("This cell is occupied! Try again!");
             }
         }
-
     }
 }

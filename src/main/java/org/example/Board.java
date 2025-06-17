@@ -23,16 +23,13 @@ public class Board {
         cells[x][y] = marker;
     }
 
-    public void print()
-    {
+    public void print() {
         System.out.print("_______");
 
-        for(int i = 0; i < 3; i++)
-        {
+        for(int i = 0; i < 3; i++) {
             System.out.print("\n|");
 
-            for(int j = 0; j < 3; j++)
-            {
+            for(int j = 0; j < 3; j++) {
                 System.out.print(cells[i][j] + "|");
             }
         }
