@@ -11,9 +11,9 @@ public class Main {
         TicTacToe game = new TicTacToe();
         game.start();
 
-        while(true)
-        {
-            System.out.println("Player: " + game.getCurrentPlayer().getMarker() + ", where do you want to place your marker?");
+        while(true) {
+            System.out.println("Player: " + game.getCurrentPlayer().getMarker() +
+                                    ", where do you want to place your marker?");
 
             System.out.print("row: ");
             int x = scanner.nextInt();
@@ -23,13 +23,10 @@ public class Main {
             int y = scanner.nextInt();
             y--;
 
-            if(game.getBoard().isCellEmpty(x, y))
-            {
+            if(game.getBoard().isCellEmpty(x, y)) {
                 game.getBoard().place(x, y, game.getCurrentPlayer().getMarker());
                 game.switchCurrentPlayer();
-            }
-            else
-            {
+            } else {
                 System.out.println("This cell is occupied! Try again!");
             }
         }
