@@ -36,4 +36,34 @@ public class Board {
         System.out.println("\n_______\n");
     }
 
+    public boolean checkWin(char marker) {
+        for (int i = 0; i < 3; i++) {
+            if (cells[i][0] == marker && cells[i][1] == marker && cells[i][2] == marker) {
+                return true;
+            }
+        }
+
+        for (int j = 0; j < 3; j++) {
+            if (cells[0][j] == marker && cells[1][j] == marker && cells[2][j] == marker) {
+                return true;
+            }
+        }
+
+        if (cells[0][0] == marker && cells[1][1] == marker && cells[2][2] == marker) {
+            return true;
+        }
+        return cells[0][2] == marker && cells[1][1] == marker && cells[2][0] == marker;
+    }
+
+    public boolean isFull() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (cells[i][j] == ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }
