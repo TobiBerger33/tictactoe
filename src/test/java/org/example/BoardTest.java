@@ -114,5 +114,22 @@ class BoardTest
         assertTrue(board.isFull());
     }
 
+    @Test
+    void testReset_ClearsBoard()
+    {
+        Board board = new Board();
+        board.place(0, 0, 'X');
+        board.place(1, 1, 'O');
+        board.place(2, 2, 'X');
+        
+        board.reset();
+        
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                assertTrue(board.isCellEmpty(i, j));
+            }
+        }
+    }
+
 
 }

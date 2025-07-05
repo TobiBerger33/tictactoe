@@ -56,4 +56,10 @@ public class TicTacToe {
             gameState = GameState.DRAW;
         }
     }
+    
+    public void reset() {
+        board.reset();
+        currentPlayer = player1;
+        gameState = GameState.IN_PROGRESS;
+    }
 }
