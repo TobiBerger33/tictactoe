@@ -7,13 +7,24 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         TicTacToe game = new TicTacToe();
-        game.start();
+        boolean playAgain = true;
 
-        while (game.getGameState() == TicTacToe.GameState.IN_PROGRESS) {
-            playTurn(scanner, game);
+        while (playAgain) {
+            game.start();
+
+            while (game.getGameState() == TicTacToe.GameState.IN_PROGRESS) {
+                playTurn(scanner, game);
+            }
+
+            displayGameResult(game);
+            playAgain = askToPlayAgain(scanner);
+            
+            if (playAgain) {
+                game.reset();
+            }
         }
-
-        displayGameResult(game);
+        
+        System.out.println("Thanks for playing! Goodbye!");
     }
 
     private static void playTurn(Scanner scanner, TicTacToe game) {
@@ -60,5 +71,18 @@ public class Main {
                 break;
         }
         System.out.println("==================\n");
+    }
+    
+    private static boolean askToPlayAgain(Scanner scanner) {
+        System.out.print("Would you like to play again? (yes/no): ");
+        scanner.nextLine(); // consume the leftover newline
+        String response = scanner.nextLine().trim().toLowerCase();
+        
+        while (!response.equals("yes") && !response.equals("no")) {
+            System.out.print("Please enter 'yes' or 'no': ");
+            response = scanner.nextLine().trim().toLowerCase();
+        }
+        
+        return response.equals("yes");
     }
 }
